@@ -1,0 +1,105 @@
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 2rem 6rem;
+  position: relative;
+  background: var(--bg);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 40%, var(--accent-lighter) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(4rem, 12vw, 8.5rem);
+  font-weight: 300;
+  line-height: 0.95;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 1.75rem;
+}
+
+.tagline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 2.5rem;
+  max-width: 420px;
+}
+
+.cta {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 2px;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.cta:hover {
+  background: var(--accent);
+  color: #fafaf8;
+  border-color: var(--accent);
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scrollHint span {
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--accent-light));
+  margin: 0 auto;
+  animation: fadeDown 2s ease-in-out infinite;
+}
+
+@keyframes fadeDown {
+  0%, 100% { opacity: 0; transform: scaleY(0.5); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 7rem 1.5rem 5rem;
+  }
+}

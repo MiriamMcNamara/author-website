@@ -6,11 +6,7 @@ export default function About() {
       <div className="container">
         <div className={styles.grid}>
           <div className={styles.photoCol}>
-            <div className={styles.photoPlaceholder} aria-label="Author photo placeholder">
-              <span className={styles.initials}>MM</span>
-            </div>
-            {/* To use your actual photo, replace the div above with:
-                <img src="/headshot.jpg" alt="Miriam McNamara" className={styles.photo} /> */}
+            <img src="/headshot.jpg" alt="Miriam McNamara" className={styles.photo} />
           </div>
 
           <div className={styles.textCol}>

@@ -8,8 +8,8 @@ interface Book {
   award: string
   goodreadsUrl: string
   bookshopUrl: string
-  coverColor: string
-  coverAccent: string
+  coverUrl: string
+  coverAlt: string
 }
 
 const publishedBooks: Book[] = [
@@ -24,8 +24,8 @@ const publishedBooks: Book[] = [
       'https://www.goodreads.com/book/show/32295460-the-unbinding-of-mary-reade',
     bookshopUrl:
       'https://bookshop.org/p/books/the-unbinding-of-mary-reade-miriam-mcnamara/9d2dd660b894d267',
-    coverColor: '#2a3550',
-    coverAccent: '#c9a84c',
+    coverUrl: 'https://covers.openlibrary.org/b/isbn/9781510727052-L.jpg',
+    coverAlt: 'Cover of The Unbinding of Mary Reade',
   },
   {
     title: 'An Impossible Distance to Fall',
@@ -38,26 +38,15 @@ const publishedBooks: Book[] = [
       'https://www.goodreads.com/book/show/35217473-an-impossible-distance-to-fall',
     bookshopUrl:
       'https://bookshop.org/p/books/an-impossible-distance-to-fall-miriam-mcnamara/9781510735453',
-    coverColor: '#4a2e1a',
-    coverAccent: '#d4a05a',
+    coverUrl: 'https://covers.openlibrary.org/b/isbn/9781510735453-L.jpg',
+    coverAlt: 'Cover of An Impossible Distance to Fall',
   },
 ]
 
 function BookCover({ book }: { book: Book }) {
   return (
-    <div
-      className={styles.cover}
-      style={{ background: book.coverColor }}
-      aria-hidden="true"
-    >
-      <div className={styles.coverInner} style={{ borderColor: book.coverAccent }}>
-        <span className={styles.coverTitle} style={{ color: book.coverAccent }}>
-          {book.title}
-        </span>
-        <span className={styles.coverAuthor}>Miriam McNamara</span>
-      </div>
-      {/* To use your actual cover: replace this div with:
-          <img src="/covers/mary-reade.jpg" alt="Cover of The Unbinding of Mary Reade" /> */}
+    <div className={styles.cover}>
+      <img src={book.coverUrl} alt={book.coverAlt} className={styles.coverImg} />
     </div>
   )
 }

@@ -100,16 +100,16 @@ export default function Books() {
           <h2 className={styles.wipHeading}>Works in progress</h2>
           <div className={styles.wipGrid}>
             <div className={styles.wipCard}>
-              <h3 className={styles.wipTitle}>Contemporary YA</h3>
+              <h3 className={styles.wipTitle}>Epic Romantasy</h3>
               <p className={styles.wipText}>
-                A new contemporary young adult novel, set in Minneapolis —
-                forthcoming.
+                The first book in an epic romantasy series — under construction.
               </p>
             </div>
             <div className={styles.wipCard}>
-              <h3 className={styles.wipTitle}>Epic Romantasy</h3>
+              <h3 className={styles.wipTitle}>Contemporary YA</h3>
               <p className={styles.wipText}>
-                The first book in an epic romantasy series — forthcoming.
+                A new contemporary young adult novel, set in Minneapolis —
+                under construction.
               </p>
             </div>
           </div>

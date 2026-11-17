@@ -1,19 +1,22 @@
 import styles from './About.module.css'
+import { WaveDivider } from './Water'
 
 export default function About() {
   return (
+    <>
+    <WaveDivider back="#1d5a85" front="#e3f0f7" seed={1} flip background="var(--abyss)" />
     <section className={styles.section} id="about">
       <div className="container">
         <div className={styles.grid}>
-          <div className={styles.photoCol}>
+          <div className={`${styles.photoCol} reveal`}>
             <img src="/headshot.jpg" alt="Miriam McNamara" className={styles.photo} />
           </div>
 
           <div className={styles.textCol}>
-            <p className="section-label">About the author</p>
-            <h2 className={styles.heading}>Miriam McNamara</h2>
+            <p className="section-label reveal">About the author</p>
+            <h2 className={`section-heading ${styles.heading} reveal`}>Miriam McNamara</h2>
 
-            <div className={styles.bio}>
+            <div className={`${styles.bio} reveal`}>
               <p>
                 Miriam McNamara is a queer YA and romantasy author who was born in Ireland,
                 raised in the American South, and now calls Minneapolis home. She has an MFA
@@ -29,8 +32,8 @@ export default function About() {
               <p>
                 For a while, she took a detour into software engineering — a detour that
                 turned into a career. But stories have a way of pulling you back. She's
-                currently at work on a contemporary YA novel set in Minneapolis and an
-                epic romantasy series, and she's thrilled to be back where she belongs.
+                currently at work on an epic eco-fantasy romantasy series set in a world
+                of water, and she's thrilled to be back where she belongs.
               </p>
               <p>
                 When she's not writing, you'll find her in the kitchen, on the dance floor,
@@ -41,5 +44,6 @@ export default function About() {
         </div>
       </div>
     </section>
+    </>
   )
 }

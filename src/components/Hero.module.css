@@ -1,105 +1,141 @@
 .hero {
   min-height: 100svh;
+  padding: 0;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 8rem 2rem 6rem;
-  position: relative;
-  background: var(--bg);
+  background: linear-gradient(180deg, #d7ebf6 0%, #e9f4fa 38%, #f4f9fc 55%, #cfe5f2 72%, var(--shallows) 100%);
 }
 
-.hero::before {
-  content: '';
+.sun {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 620px;
+  height: 620px;
+  margin: -310px 0 0 -310px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 250, 236, 0.95) 0%, rgba(255, 246, 225, 0.45) 35%, transparent 68%);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.clouds,
+.birds {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 40%, var(--accent-lighter) 0%, transparent 70%);
   pointer-events: none;
+}
+
+.birds {
+  z-index: 1;
+}
+
+.cloud {
+  position: absolute;
+  left: 0;
+  border-radius: 50%;
+  background: #fff;
+  filter: blur(30px);
+  opacity: 0.8;
+  will-change: transform;
+}
+
+.bird {
+  position: absolute;
+  left: 0;
+  will-change: transform;
+}
+
+.bird svg {
+  display: block;
+  overflow: visible;
+}
+
+.bird path {
+  fill: none;
+  stroke: var(--tide);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.6;
+  transform-origin: 50% 70%;
+  animation: flap 1.1s ease-in-out infinite;
+}
+
+@keyframes flap {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.35); }
 }
 
 .inner {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
+  padding: 0 2rem 10vh;
+  will-change: transform, opacity;
 }
 
 .eyebrow {
   font-size: 0.75rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 500;
-  margin-bottom: 1rem;
+  color: var(--tide);
+  font-weight: 600;
+  margin-bottom: 1.4rem;
 }
 
 .name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(4rem, 12vw, 8.5rem);
-  font-weight: 300;
-  line-height: 0.95;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
-  margin-bottom: 1.75rem;
+  font-size: clamp(4rem, 13vw, 9.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--deep);
+  margin-bottom: 1.8rem;
+  font-weight: 350;
 }
 
 .tagline {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.1rem, 3vw, 1.5rem);
-  font-weight: 400;
+  font-family: var(--display);
+  font-variation-settings: var(--display-vars);
   font-style: italic;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 2.5rem;
-  max-width: 420px;
+  font-size: clamp(1.15rem, 2.6vw, 1.55rem);
+  color: var(--text-2);
+  margin-bottom: 2.6rem;
 }
 
-.cta {
-  display: inline-block;
-  padding: 0.7rem 2rem;
-  border: 1px solid var(--border-strong);
-  border-radius: 2px;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 500;
-  text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+.arrow {
+  transition: transform 0.3s ease;
 }
 
-.cta:hover {
-  background: var(--accent);
-  color: #fafaf8;
-  border-color: var(--accent);
+.inner a:hover .arrow {
+  transform: translateY(2px);
 }
 
-.scrollHint {
+.waves {
   position: absolute;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 42vh;
+  min-height: 260px;
+  pointer-events: none;
+  z-index: 2;
 }
 
-.scrollHint span {
-  display: block;
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(to bottom, transparent, var(--accent-light));
-  margin: 0 auto;
-  animation: fadeDown 2s ease-in-out infinite;
-}
-
-@keyframes fadeDown {
-  0%, 100% { opacity: 0; transform: scaleY(0.5); transform-origin: top; }
-  50% { opacity: 1; transform: scaleY(1); }
+.shallowBubbles {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 27vh;
+  z-index: 3;
 }
 
 @media (max-width: 640px) {
-  .hero {
-    padding: 7rem 1.5rem 5rem;
+  .inner {
+    padding: 0 1.5rem 12vh;
   }
 }

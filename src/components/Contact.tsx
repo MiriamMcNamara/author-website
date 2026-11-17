@@ -39,9 +39,9 @@ export default function Contact() {
     <section className={styles.section} id="contact">
       <div className="container">
         <div className={styles.inner}>
-          <p className="section-label">Say hello</p>
-          <h2 className={styles.heading}>Get in touch</h2>
-          <p className={styles.subtext}>
+          <p className="section-label reveal">Say hello</p>
+          <h2 className={`section-heading ${styles.heading} reveal`}>Get in touch</h2>
+          <p className={`${styles.subtext} reveal`}>
             Whether you're a reader, a fellow author, or you'd like to get in touch
             about something else — I'd love to hear from you.
           </p>
@@ -51,7 +51,7 @@ export default function Contact() {
               <p>Thank you for your message — I'll be in touch soon.</p>
             </div>
           ) : (
-            <form className={styles.form} onSubmit={handleSubmit} noValidate>
+            <form className={`${styles.form} reveal`} onSubmit={handleSubmit} noValidate>
               <div className={styles.row}>
                 <div className={styles.field}>
                   <label htmlFor="name">Name</label>
@@ -101,7 +101,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className={styles.submit}
+                className={`btn-pill ${styles.submit}`}
                 disabled={status === 'sending'}
               >
                 {status === 'sending' ? 'Sending…' : 'Send message'}

@@ -9,10 +9,11 @@
 }
 
 .nav.scrolled {
-  background: rgba(250, 250, 248, 0.95);
-  backdrop-filter: blur(8px);
+  background: rgba(250, 253, 254, 0.82);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
   box-shadow: 0 1px 0 var(--border);
-  padding: 0.85rem 2rem;
+  padding: 0.8rem 2rem;
 }
 
 .inner {
@@ -24,16 +25,16 @@
 }
 
 .wordmark {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: var(--text-primary);
-  letter-spacing: 0.01em;
+  font-family: var(--display);
+  font-variation-settings: var(--display-vars);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--ink);
   text-decoration: none;
 }
 
 .wordmark:hover {
-  color: var(--accent);
+  color: var(--tide);
 }
 
 .links {
@@ -42,17 +43,35 @@
 }
 
 .links a {
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
+  position: relative;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--text-2);
   font-weight: 400;
   transition: color 0.2s ease;
   text-decoration: none;
 }
 
+.links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: var(--sea);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
 .links a:hover {
-  color: var(--accent);
+  color: var(--tide);
+}
+
+.links a:hover::after {
+  transform: scaleX(1);
 }
 
 .menuToggle {
@@ -69,7 +88,7 @@
   display: block;
   width: 22px;
   height: 1.5px;
-  background: var(--text-primary);
+  background: var(--ink);
   transition: transform 0.25s ease, opacity 0.25s ease;
   transform-origin: center;
 }
@@ -87,8 +106,8 @@
     right: 0;
     flex-direction: column;
     gap: 0;
-    background: rgba(250, 250, 248, 0.98);
-    backdrop-filter: blur(8px);
+    background: rgba(250, 253, 254, 0.98);
+    backdrop-filter: blur(14px);
     border-top: 1px solid var(--border);
     padding: 1rem 2rem 1.5rem;
   }
@@ -100,6 +119,10 @@
   .links a {
     padding: 0.6rem 0;
     border-bottom: 1px solid var(--border);
+  }
+
+  .links a::after {
+    display: none;
   }
 
   .links a:last-child {

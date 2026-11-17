@@ -1,37 +1,31 @@
 .section {
-  background: var(--bg);
-  padding: 5rem 2rem;
+  background: var(--foam);
 }
 
 .inner {
-  max-width: 640px;
+  max-width: 660px;
   margin: 0 auto;
 }
 
 .heading {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 300;
   margin-bottom: 1rem;
-  color: var(--text-primary);
 }
 
 .subtext {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
+  color: var(--text-2);
   margin-bottom: 2.5rem;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.2rem;
 }
 
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
+  gap: 1.2rem;
 }
 
 .field {
@@ -41,37 +35,38 @@
 }
 
 .field label {
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-secondary);
-  font-weight: 500;
+  color: var(--text-2);
+  font-weight: 600;
 }
 
 .field input,
 .field textarea {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.95rem;
-  color: var(--text-primary);
-  background: var(--bg-card);
-  border: 1px solid var(--border-strong);
-  border-radius: 2px;
-  padding: 0.65rem 0.9rem;
   width: 100%;
-  transition: border-color 0.2s ease;
-  outline: none;
+  font-family: var(--body);
+  font-size: 0.95rem;
   line-height: 1.5;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  outline: none;
   resize: vertical;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .field input::placeholder,
 .field textarea::placeholder {
-  color: var(--text-muted);
+  color: var(--text-3);
 }
 
 .field input:focus,
 .field textarea:focus {
-  border-color: var(--accent);
+  border-color: var(--sea);
+  box-shadow: 0 0 0 4px rgba(58, 132, 180, 0.14);
 }
 
 .field input:disabled,
@@ -82,21 +77,6 @@
 
 .submit {
   align-self: flex-start;
-  padding: 0.75rem 2.25rem;
-  background: var(--accent);
-  color: var(--bg);
-  border: none;
-  border-radius: 2px;
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.submit:hover:not(:disabled) {
-  background: var(--text-primary);
 }
 
 .submit:disabled {
@@ -106,17 +86,18 @@
 
 .successMessage {
   padding: 1.5rem;
-  background: var(--accent-lighter);
-  border: 1px solid var(--accent-light);
-  border-radius: 4px;
+  background: var(--mist);
+  border: 1px solid var(--border);
+  border-radius: 18px;
   text-align: center;
 }
 
 .successMessage p {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--display);
+  font-variation-settings: var(--display-vars);
   font-size: 1.2rem;
-  color: var(--accent);
   font-style: italic;
+  color: var(--tide);
 }
 
 .errorMessage {

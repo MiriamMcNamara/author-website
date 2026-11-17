@@ -64,8 +64,8 @@ export default function Books() {
       <section className={styles.section} id="books">
         <Bubbles count={7} variant="light" duration={[8, 6]} seed={3} className={styles.bubbles} />
         <div className="container">
-          <p className="section-label reveal">Published works</p>
-          <h2 className="section-heading reveal">Books</h2>
+          <h2 className={`section-heading ${styles.heading} reveal`}>Books</h2>
+          <p className={`section-label ${styles.subheading} reveal`}>Published works</p>
 
           <div className={styles.grid}>
             {publishedBooks.map((book) => (
@@ -98,8 +98,7 @@ export default function Books() {
         <div className={styles.caustics} aria-hidden="true" />
         <Bubbles count={14} variant="dark" duration={[14, 16]} seed={11} className={styles.deepBubbles} />
         <div className="container" style={{ position: 'relative' }}>
-          <p className="section-label reveal">Coming soon</p>
-          <h2 className="section-heading reveal">Work in progress</h2>
+          <p className={`section-label ${styles.subheading} reveal`}>Coming soon</p>
           <div className={`${styles.wipFeature} reveal`}>
             <div>
               <p className={styles.kicker}>Epic romantasy</p>

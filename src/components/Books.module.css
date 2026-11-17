@@ -11,6 +11,15 @@
   height: 280px;
 }
 
+.heading {
+  margin-bottom: 1.75rem;
+}
+
+.subheading {
+  font-size: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
@@ -152,7 +161,7 @@
 /* ---------- Work in progress: deep water ---------- */
 .deepwater {
   overflow: hidden;
-  padding: 7rem 2rem 8rem;
+  padding: 6rem 2rem 8rem;
   color: #d8e9f3;
   background: linear-gradient(180deg, var(--tide) 0%, var(--deep) 30%, var(--abyss) 100%);
 }
@@ -161,9 +170,6 @@
   color: var(--shallows);
 }
 
-.deepwater :global(.section-heading) {
-  color: #f2f8fb;
-}
 
 .caustics {
   position: absolute;

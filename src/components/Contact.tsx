@@ -43,7 +43,7 @@ export default function Contact() {
           <h2 className={`section-heading ${styles.heading} reveal`}>Get in touch</h2>
           <p className={`${styles.subtext} reveal`}>
             Whether you're a reader, a fellow author, or you'd like to get in touch
-            about something else — I'd love to hear from you.
+            about something else: I'd love to hear from you!
           </p>
 
           {status === 'sent' ? (

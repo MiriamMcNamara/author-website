@@ -30,10 +30,9 @@ export default function About() {
                 <em>An Impossible Distance to Fall</em>, took the Bronze.
               </p>
               <p>
-                For a while, she took a detour into software engineering — a detour that
-                turned into a career. But stories have a way of pulling you back. She's
-                currently at work on an epic eco-fantasy romantasy series set in a world
-                of water, and she's thrilled to be back where she belongs.
+                She's taken a few detours along the way, but stories have a way of pulling
+                you back. She's currently at work on an epic romantasy series set in a
+                world of water, and she's thrilled to be back where she belongs.
               </p>
               <p>
                 When she's not writing, you'll find her in the kitchen, on the dance floor,

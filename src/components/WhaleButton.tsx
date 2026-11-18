@@ -9,9 +9,7 @@ export default function WhaleButton({ href, children }: { href: string; children
           className={styles.outline}
           d="M44 18 C140 12 205 18 236 34 C246 28 253 20 257 10 C250 7 244 4 237 1 C250 -1 262 3 269 9 C277 1 289 -2 298 2 C289 9 277 17 270 23 C267 40 261 53 249 62 C231 74 205 80 170 80 L50 80 C20 80 6 66 6 50 C6 32 20 18 44 18 Z"
         />
-        <path className={styles.mouth} d="M10 58 Q28 64 50 60" />
-        <circle className={styles.eye} cx="34" cy="43" r="2.6" />
-        <path className={styles.flipper} d="M92 70 Q100 84 116 84 Q110 76 106 68" />
+        <path className={styles.flipper} d="M88 74 C94 84 106 90 124 89 C116 84 112 78 112 74 Z" />
       </svg>
 
       <svg className={styles.spout} viewBox="0 0 80 70" aria-hidden="true">

@@ -3,7 +3,7 @@
   display: inline-block;
   width: 288px;
   height: 86px;
-  color: var(--deep);
+  color: var(--pearl);
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
   transition: transform 0.5s cubic-bezier(0.3, 0.7, 0.3, 1);
@@ -17,30 +17,18 @@
   overflow: visible;
 }
 
-.outline {
-  fill: rgba(255, 255, 255, 0.45);
-  stroke: var(--deep);
-  stroke-width: 2;
-  stroke-linejoin: round;
-  transition: fill 0.4s ease, stroke 0.4s ease;
-}
-
-.mouth,
+.outline,
 .flipper {
-  fill: none;
-  stroke: var(--deep);
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: stroke 0.4s ease;
-}
-
-.flipper {
-  fill: rgba(255, 255, 255, 0.45);
-}
-
-.eye {
   fill: var(--deep);
+  stroke: var(--deep);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.body {
+  filter: drop-shadow(0 10px 16px rgba(16, 50, 79, 0));
+  transition: filter 0.3s ease;
 }
 
 /* text sits in the body, left of the tail */
@@ -53,11 +41,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 22px;
+  padding-left: 10px;
   font-size: 0.78rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
   white-space: nowrap;
 }
 
@@ -98,13 +86,25 @@
 }
 
 .whale:focus-visible .outline {
-  stroke-width: 2.6;
+  stroke: var(--sky);
+  stroke-width: 3;
 }
 
 .whale:hover .outline,
-.whale:focus-visible .outline {
-  fill: rgba(227, 240, 247, 0.85);
+.whale:hover .flipper,
+.whale:focus-visible .outline,
+.whale:focus-visible .flipper {
+  fill: var(--tide);
+}
+
+.whale:hover .outline,
+.whale:hover .flipper {
   stroke: var(--tide);
+}
+
+.whale:hover .body,
+.whale:focus-visible .body {
+  filter: drop-shadow(0 10px 16px rgba(16, 50, 79, 0.35));
 }
 
 .whale:hover .jet,

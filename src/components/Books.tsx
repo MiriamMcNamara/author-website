@@ -104,7 +104,7 @@ export default function Books() {
               <p className={styles.kicker}>Epic romantasy</p>
               <h3 className={styles.wipTitle}>The Unsound Sea</h3>
               <p className={styles.wipDesc}>
-                An adult sapphic romantasy set in a shimmering water world. An epic fairytale and a
+                An adult sapphic romantasy set in a resonant water world. An epic fairytale and a
                 story of ecological reckoning: <em>The Little Mermaid</em> meets <em>FernGully</em> if
                 the sea were being strip-mined into silence.
               </p>

@@ -107,10 +107,12 @@
   margin-bottom: 2.6rem;
 }
 
-.dive {
-  display: inline-block;
-  transform-origin: 35% 60%;
-  will-change: transform, opacity;
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.inner a:hover .arrow {
+  transform: translateY(2px);
 }
 
 .waves {

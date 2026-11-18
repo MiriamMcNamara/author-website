@@ -107,14 +107,6 @@
   margin-bottom: 2.6rem;
 }
 
-.arrow {
-  transition: transform 0.3s ease;
-}
-
-.inner a:hover .arrow {
-  transform: translateY(2px);
-}
-
 .waves {
   position: absolute;
   left: 0;

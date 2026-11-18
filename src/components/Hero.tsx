@@ -68,7 +68,9 @@ export default function Hero() {
           McNamara
         </h1>
         <p className={styles.tagline}>Stories about finding yourself in unexpected places</p>
-        <WhaleButton href="#books">Discover my books</WhaleButton>
+        <div className={styles.dive} data-whale-dive>
+          <WhaleButton href="#books">Discover my books</WhaleButton>
+        </div>
       </div>
 
       <div className={styles.waves} aria-hidden="true">

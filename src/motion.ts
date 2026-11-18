@@ -6,6 +6,7 @@
  *   [data-bird][data-ox][data-sc]              birds gliding across
  *   [data-parallax]                            moves down at given rate (sun)
  *   [data-hero-copy]                           hero text drifts down & fades
+ *   [data-whale-dive]                          hero whale button tips down & dives
  *   .reveal                                    fades up when scrolled into view
  */
 export function startMotion(): () => void {
@@ -30,6 +31,7 @@ export function startMotion(): () => void {
   const birds = Array.from(document.querySelectorAll<HTMLElement>('[data-bird]'))
   const parallax = Array.from(document.querySelectorAll<HTMLElement>('[data-parallax]'))
   const copy = document.querySelector<HTMLElement>('[data-hero-copy]')
+  const whale = document.querySelector<HTMLElement>('[data-whale-dive]')
 
   const t0 = performance.now()
   let raf = 0
@@ -73,6 +75,13 @@ export function startMotion(): () => void {
       parallax.forEach((p) => {
         p.style.transform = `translateY(${y * +p.dataset.parallax!}px)`
       })
+      if (whale) {
+        // as you scroll, the whale tips its nose down and dives out of view
+        const p = Math.min(1, y / (vh * 0.45))
+        const e = p * p * (3 - 2 * p) // smoothstep
+        whale.style.transform = `translate3d(${-e * 40}px, ${e * 110}px, 0) rotate(${-e * 28}deg)`
+        whale.style.opacity = String(Math.max(0, 1 - Math.pow(p, 1.6)))
+      }
       if (copy) {
         copy.style.transform = `translateY(${y * 0.28}px)`
         copy.style.opacity = String(Math.max(0, 1 - y / (vh * 0.7)))

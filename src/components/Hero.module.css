@@ -107,6 +107,12 @@
   margin-bottom: 2.6rem;
 }
 
+.dive {
+  display: inline-block;
+  transform-origin: 35% 60%;
+  will-change: transform, opacity;
+}
+
 .waves {
   position: absolute;
   left: 0;

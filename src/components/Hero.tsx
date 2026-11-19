@@ -1,5 +1,6 @@
 import styles from './Hero.module.css'
 import { Bubbles, Wave } from './Water'
+import WhaleButton from './WhaleButton'
 
 // [x0 %, top %, width, height, parallax speed]
 const CLOUDS: [number, number, number, number, number][] = [
@@ -67,12 +68,9 @@ export default function Hero() {
           McNamara
         </h1>
         <p className={styles.tagline}>Stories about finding yourself in unexpected places</p>
-        <a href="#books" className="btn-pill">
-          Discover my books
-          <svg className={styles.arrow} width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-            <path d="M6 1v10M1.5 6.5 6 11l4.5-4.5" stroke="currentColor" strokeWidth="1.4" />
-          </svg>
-        </a>
+        <div className={styles.dive} data-whale-dive>
+          <WhaleButton href="#books">Discover my books</WhaleButton>
+        </div>
       </div>
 
       <div className={styles.waves} aria-hidden="true">

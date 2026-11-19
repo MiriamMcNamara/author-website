@@ -98,7 +98,7 @@ export default function Books() {
         <div className={styles.caustics} aria-hidden="true" />
         <Bubbles count={14} variant="dark" duration={[14, 16]} seed={11} className={styles.deepBubbles} />
         <div className="container" style={{ position: 'relative' }}>
-          <p className={`section-label ${styles.subheading} reveal`}>Coming soon</p>
+          <p className={`section-label ${styles.subheading} reveal`}>Work in progress</p>
           <div className={`${styles.wipFeature} reveal`}>
             <div>
               <p className={styles.kicker}>Epic romantasy</p>

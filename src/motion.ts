@@ -6,7 +6,9 @@
  *   [data-bird][data-ox][data-sc]              birds gliding across
  *   [data-parallax]                            moves down at given rate (sun)
  *   [data-hero-copy]                           hero text drifts down & fades
- *   [data-whale-dive]                          hero whale button tips down & dives
+ *   [data-whale-dive]                          hero whale button tips down & dives;
+ *                                              on touch screens it also spouts once
+ *                                              on arrival and each time it resurfaces
  *   .reveal                                    fades up when scrolled into view
  */
 export function startMotion(): () => void {
@@ -32,6 +34,22 @@ export function startMotion(): () => void {
   const parallax = Array.from(document.querySelectorAll<HTMLElement>('[data-parallax]'))
   const copy = document.querySelector<HTMLElement>('[data-hero-copy]')
   const whale = document.querySelector<HTMLElement>('[data-whale-dive]')
+  const whaleLink = whale?.querySelector<HTMLElement>('a')
+
+  // Touch screens can't hover, so the whale spouts on its own at natural moments
+  const touchOnly = window.matchMedia('(hover: none)').matches
+  const timers: number[] = []
+  let spoutEnd = 0
+  const spout = () => {
+    if (!whaleLink) return
+    whaleLink.removeAttribute('data-spout')
+    void whaleLink.offsetWidth // restart the animation
+    whaleLink.setAttribute('data-spout', '')
+    clearTimeout(spoutEnd)
+    spoutEnd = window.setTimeout(() => whaleLink.removeAttribute('data-spout'), 2300)
+  }
+  let dived = false
+  if (touchOnly && window.scrollY < 40) timers.push(window.setTimeout(spout, 1300)) // hello!
 
   const t0 = performance.now()
   let raf = 0
@@ -81,6 +99,13 @@ export function startMotion(): () => void {
         const e = p * p * (3 - 2 * p) // smoothstep
         whale.style.transform = `translate3d(${e * 40}px, ${e * 110}px, 0) rotate(${e * 28}deg)`
         whale.style.opacity = String(Math.max(0, 1 - Math.pow(p, 1.6)))
+        if (touchOnly) {
+          if (p > 0.6) dived = true
+          else if (dived && p <= 0.01) {
+            dived = false // surfaced: come up for air
+            timers.push(window.setTimeout(spout, 250))
+          }
+        }
       }
       if (copy) {
         copy.style.transform = `translateY(${y * 0.28}px)`
@@ -94,6 +119,8 @@ export function startMotion(): () => void {
 
   return () => {
     cancelAnimationFrame(raf)
+    timers.forEach(clearTimeout)
+    clearTimeout(spoutEnd)
     io.disconnect()
   }
 }

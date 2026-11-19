@@ -130,6 +130,30 @@
 .whale:hover .d4, .whale:focus-visible .d4 { --dx: -6px; animation-delay: 0.5s; }
 .whale:hover .d5, .whale:focus-visible .d5 { --dx: 6px; animation-delay: 0.55s; }
 
+/* one-off spout on touch screens (set from src/motion.ts) */
+.whale[data-spout] {
+  transform: translateY(-3px) rotate(1.5deg);
+}
+
+.whale[data-spout] .jet {
+  animation: spray 1.6s ease-out 1;
+}
+
+.whale[data-spout] .jetL,
+.whale[data-spout] .jetR {
+  animation-delay: 0.12s;
+}
+
+.whale[data-spout] .drop {
+  animation: drip 1.6s ease-in 1 both;
+}
+
+.whale[data-spout] .d1 { --dx: -10px; animation-delay: 0.35s; }
+.whale[data-spout] .d2 { --dx: 10px; animation-delay: 0.4s; }
+.whale[data-spout] .d3 { --dx: 0px; animation-delay: 0.25s; }
+.whale[data-spout] .d4 { --dx: -6px; animation-delay: 0.5s; }
+.whale[data-spout] .d5 { --dx: 6px; animation-delay: 0.55s; }
+
 @keyframes spray {
   0% { stroke-dashoffset: 60; opacity: 0; }
   15% { opacity: 1; }
